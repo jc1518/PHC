@@ -9,7 +9,7 @@ The water is your friend, you don't have to fight with water,
 just share the same spirit as the water, and it will help you move.
 """
 )
-st.header("Swimming Coach 🏊", divider=True)
+st.header("Swimming 🏊", divider=True)
 target_column, dashboard_column, recommendation_column = st.columns(3)
 
 with target_column:

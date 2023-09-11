@@ -8,7 +8,7 @@ st.sidebar.write(
 A good laugh and a long sleep are the best cures in the doctor’s book.
 """
 )
-st.header("Sleep Coach 🛌", divider=True)
+st.header("Sleep 🛌", divider=True)
 target_column, dashboard_column, recommendation_column = st.columns(3)
 
 with target_column:

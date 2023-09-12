@@ -1,19 +1,20 @@
 """Assistant"""
 import os
-from dotenv import load_dotenv
 
-import streamlit as st
 import pandas as pd
-from langchain.agents import AgentType, create_csv_agent
+import streamlit as st
+from dotenv import load_dotenv
+from langchain import SerpAPIWrapper
+from langchain.agents import AgentType, Tool, create_csv_agent, initialize_agent
 from langchain.callbacks import StreamlitCallbackHandler
 from langchain.chat_models import ChatOpenAI
-
 
 load_dotenv()
 NAME = os.getenv("NAME")
 HEALTH_RECORD_FILE = os.getenv("HEALTH_RECORD_FILE")
 HEALTH_WORKOUT_FILE = os.getenv("HEALTH_WORKOUT_FILE")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+SERPAPI_API_KEY = os.getenv("SERPAPI_API_KEY")
 
 st.set_page_config(page_title="Assistant", page_icon="💬")
 st.sidebar.header("Assistant")
@@ -25,6 +26,7 @@ Personal Assistant
 
 llm = ChatOpenAI(
     model_name="gpt-3.5-turbo-0613",
+    # model_name="gpt-4-0613",
     openai_api_key=OPENAI_API_KEY,
     streaming=True,
     temperature=0,
@@ -35,6 +37,25 @@ workout_agent = create_csv_agent(
     HEALTH_WORKOUT_FILE,
     verbose=True,
     agent_type=AgentType.OPENAI_FUNCTIONS,
+)
+
+search = SerpAPIWrapper()
+
+tools = [
+    Tool(
+        name="Search",
+        func=search.run,
+        description="useful for when you need to answer questions about current events. You should ask targeted questions",
+    ),
+]
+
+assistant = initialize_agent(
+    tools,
+    llm,
+    verbose=True,
+    agent_type=AgentType.OPENAI_FUNCTIONS,
+    handle_parsing_errors=True,
+    max_iterations=3,
 )
 
 if "messages" not in st.session_state:
@@ -52,7 +73,8 @@ for msg in st.session_state.messages:
 if prompt := st.chat_input(placeholder=""):
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
-    st_cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=True)
+    st_cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=False)
     response = workout_agent.run(prompt, callbacks=[st_cb])
+    # response = assistant.run(prompt, callbacks=[st_cb])
     st.session_state.messages.append({"role": "assistant", "content": response})
     st.write(response)

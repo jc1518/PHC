@@ -2,9 +2,9 @@
 
 import os
 
-from dotenv import load_dotenv
 import pandas as pd
 import streamlit as st
+from dotenv import load_dotenv
 from langchain.callbacks import StreamlitCallbackHandler
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import HumanMessage, SystemMessage

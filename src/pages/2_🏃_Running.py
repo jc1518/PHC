@@ -322,9 +322,10 @@ with recommendation_column:
         st_callback = StreamlitCallbackHandler(coach_says)
 
         chat = ChatOpenAI(
+            model_name="gpt-3.5-turbo",
             streaming=True,
             callbacks=[st_callback],
-            temperature=0.8,
+            temperature=0.5,
             openai_api_key=OPENAI_API_KEY,
         )
 

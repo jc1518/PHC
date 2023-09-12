@@ -7,3 +7,5 @@ python-dotenv
 openai
 langchain
 pillow
+duckduckgo-search
+tabulate

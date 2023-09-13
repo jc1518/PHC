@@ -24,39 +24,53 @@ Personal Assistant
 """
 )
 
+MODEL_NAME = "gpt-3.5-turbo-0613"
+# MODEL_NAME = "gpt-4-0613"
+
 llm = ChatOpenAI(
-    model_name="gpt-3.5-turbo-0613",
-    # model_name="gpt-4-0613",
+    model_name=MODEL_NAME,
     openai_api_key=OPENAI_API_KEY,
     streaming=True,
     temperature=0,
 )
 
-workout_agent = create_csv_agent(
-    llm,
-    HEALTH_WORKOUT_FILE,
-    verbose=True,
-    agent_type=AgentType.OPENAI_FUNCTIONS,
-)
-
-search = SerpAPIWrapper()
-
 tools = [
     Tool(
+        name="Workout",
+        func=create_csv_agent(
+            llm,
+            HEALTH_WORKOUT_FILE,
+            verbose=True,
+            agent_type=AgentType.OPENAI_FUNCTIONS,
+            handle_parsing_errors=True,
+        ).run,
+        description="useful for when you need to answer questions about workout history.",
+    ),
+    Tool(
         name="Search",
-        func=search.run,
+        func=SerpAPIWrapper().run,
         description="useful for when you need to answer questions about current events. You should ask targeted questions",
     ),
 ]
 
-assistant = initialize_agent(
-    tools,
-    llm,
-    verbose=True,
-    agent_type=AgentType.OPENAI_FUNCTIONS,
-    handle_parsing_errors=True,
-    max_iterations=3,
-)
+if MODEL_NAME == "gpt-4-0613":
+    assistant = initialize_agent(
+        tools,
+        llm,
+        verbose=True,
+        agent_type=AgentType.OPENAI_FUNCTIONS,
+        handle_parsing_errors=True,
+        max_iterations=3,
+    )
+
+if MODEL_NAME == "gpt-3.5-turbo-0613":
+    assistant = create_csv_agent(
+        llm,
+        HEALTH_WORKOUT_FILE,
+        verbose=True,
+        agent_type=AgentType.OPENAI_FUNCTIONS,
+        handle_parsing_errors=True,
+    )
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = [
@@ -74,7 +88,6 @@ if prompt := st.chat_input(placeholder=""):
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
     st_cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=False)
-    response = workout_agent.run(prompt, callbacks=[st_cb])
-    # response = assistant.run(prompt, callbacks=[st_cb])
+    response = assistant.run(prompt, callbacks=[st_cb])
     st.session_state.messages.append({"role": "assistant", "content": response})
     st.write(response)

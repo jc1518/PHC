@@ -1,0 +1,13 @@
+NAME="XX"
+GENDER="XX"
+AGE="XX"
+WEIGHT="XX" # kg
+HEIGHT="XX" # cm
+PACE="5.30" # min/km
+STRIDE_LENGTH="1.00" # m
+HEART_RATE="150" # count/min
+GROUND_CONTACT_TIME="230" # ms
+HEALTH_RECORD_FILE="data/record_data_2023.csv"
+HEALTH_WORKOUT_FILE="data/workout_data_2023.csv"
+OPENAI_API_KEY="*****************************************"
+SERPAPI_API_KEY="****************************************"

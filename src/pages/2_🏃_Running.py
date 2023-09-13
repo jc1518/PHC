@@ -237,6 +237,7 @@ with dashboard_column:
             )
     else:
         analysis.empty()
+
         show_status(float(running_statistics["pace (min/km)"]) < float(PACE_TARGET))
         st.pyplot(
             running_statistics_pd.plot(
@@ -245,6 +246,7 @@ with dashboard_column:
             .axhline(y=float(PACE_TARGET), color="red")
             .figure
         )
+
         show_status(
             float(running_statistics["mean HeartRate (count/min)"])
             < float(HEART_RATE_TARGET)
@@ -259,9 +261,10 @@ with dashboard_column:
             .axhline(y=int(HEART_RATE_TARGET), color="red")
             .figure
         )
+
         show_status(
             float(running_statistics["mean RunningStrideLength (m)"])
-            > float(HEART_RATE_TARGET)
+            > float(STRIDE_LENGTH_TARGET)
         )
         st.pyplot(
             running_statistics_pd.plot(
@@ -273,6 +276,7 @@ with dashboard_column:
             .axhline(y=float(STRIDE_LENGTH_TARGET), color="red")
             .figure
         )
+
         show_status(
             float(running_statistics["mean RunningGroundContactTime (ms)"])
             < float(GROUND_CONTACT_TIME_TARGET)

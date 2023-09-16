@@ -12,7 +12,7 @@ If you are interested to use your own data, here is the instruction: the data is
 
 ### Backend Framework
 
-LangChain is an open source framework for developing applications powered by language models.It provides:
+LangChain is an open source framework for developing applications powered by language models. It provides:
 
 - Components - abstractions for working with language models, along with a collection of implementations for each abstraction.
 
@@ -20,7 +20,7 @@ LangChain is an open source framework for developing applications powered by la
 
 ### Frontend Framework
 
-Streamlit is an open source framework that can turn data scripts into shareable web apps in minutes.It is all in pure Python, so no front‑end experience required.
+Streamlit is an open source framework that can turn data scripts into shareable web apps in minutes. It is all in pure Python, so no front‑end experience required.
 
 ## Installation
 

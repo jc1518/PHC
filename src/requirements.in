@@ -1,5 +1,5 @@
 streamlit
-xml
+lxml
 pandas
 numpy
 matplotlib

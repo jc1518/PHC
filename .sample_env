@@ -1,0 +1,13 @@
+NAME = "Runner"
+GENDER = "male"
+AGE = "30"
+WEIGHT = "75"  # kg
+HEIGHT = "175"  # cm
+PACE = "6.30"  # min/km
+STRIDE_LENGTH = "1.00"  # m
+HEART_RATE = "160"  # count/min
+GROUND_CONTACT_TIME = "250"  # ms
+HEALTH_RECORD_FILE = "data/records_data.csv"
+HEALTH_WORKOUT_FILE = "data/workouts_data.csv"
+OPENAI_API_KEY = "*****************************************"
+# SERPAPI_API_KEY="****************************************"

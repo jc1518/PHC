@@ -37,11 +37,13 @@ pip install -r src/requirements.txt
 
 Make a copy of `.sample_env` file, and name it `.env`, then add your OpenAI API key in `OPENAI_API_KEY`. If you don't have one, you need to register with [OpenAI](https://platform.openai.com/).
 
-Run the command `streamlit run src/Home.py` to start the application, then you should be able to see something like below:
+Run the command `.venv/bin/streamlit run src/Home.py` to start the application, then you should be able to see something like below:
 
 ```
-(.venv) ➜  PHC git:(main) streamlit run src/Home.py
+(.venv) ➜  PHC git:(main) .venv/bin/streamlit run src/Home.py
+
   You can now view your Streamlit app in your browser.
+
   Local URL: http://localhost:8501
 ```
 

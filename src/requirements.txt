@@ -215,6 +215,8 @@ urllib3==2.0.4
     # via requests
 validators==0.22.0
     # via streamlit
+watchdog==3.0.0
+    # via -r requirements.in
 yarl==1.9.2
     # via aiohttp
 zipp==3.16.2

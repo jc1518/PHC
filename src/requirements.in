@@ -1,4 +1,5 @@
 streamlit
+watchdog
 lxml
 pandas
 numpy

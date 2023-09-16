@@ -14,9 +14,12 @@ target_column, dashboard_column, recommendation_column = st.columns(3)
 
 with target_column:
     st.subheader("Target")
+    st.write("TODO")
 
 with dashboard_column:
     st.subheader("Dashboard")
+    st.write("TODO")
 
 with recommendation_column:
     st.subheader("Recommendation")
+    st.write("TODO")

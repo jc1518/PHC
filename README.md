@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Everyone talks about GenAI those days, so I created the project to gain some GenAI skills. The idea is to create a simeple application which uses LLM to analyze personal health data then make recommendations.
+Everyone talks about GenAI those days, so I created the project to gain some GenAI skills. The idea is to create a simple application which uses LLM to analyze Apple health data then make recommendations.
 
 ### Data
 
@@ -35,7 +35,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-Make a copy of `.sample_env` file to `.env` file, then add your OpenAI API key in `OPENAI_API_KEY`. If you don't have one, you need to register with [OpenAI](https://platform.openai.com/).
+Make a copy of `.sample_env` file, and name it `.env`, then add your OpenAI API key in `OPENAI_API_KEY`. If you don't have one, you need to register with [OpenAI](https://platform.openai.com/).
 
 Run the command `streamlit run src/Home.py` to start the application, then you should be able to see something like below:
 

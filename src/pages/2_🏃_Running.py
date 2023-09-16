@@ -90,18 +90,20 @@ def get_workout_statistics(all_workouts, workout_type, all_records, record_types
         statistic["type"] = workout_type
         statistic[f'duration ({row["durationUnit"]})'] = row["duration"]
         statistic["time"] = row["startDate"]
-        statistic["date"] = row["startDate"][5:10]
+        statistic["date"] = row["startDate"][:10]
         for record_type in record_types:
             statistic.update(
                 get_records_for_workout(
                     all_records, record_type, row["startDate"], row["endDate"]
                 )
             )
+        # Filter out incomplete records, e.g speed is missing
         if len(statistic) == 24:
             pace = 1000 / 60 / statistic["mean RunningSpeed (m/s)"]
             statistic["pace (min/km)"] = f"{pace:.2f}"
             statistic["distance (km)"] = f'{(statistic["duration (min)"] / pace):.2f}'
-            if float(statistic["distance (km)"]) >= 5.0:
+            # Only show statistics with a distance of at least 0.1 km
+            if float(statistic["distance (km)"]) >= 0.1:
                 statistics.append(statistic)
     return statistics
 
@@ -295,6 +297,8 @@ with dashboard_column:
 with recommendation_column:
     st.subheader("Recommendation")
     coach_says = st.empty()
+    if running_date in st.session_state:
+        coach_says.write(st.session_state[running_date])
     if ask_coach:
         coach_says.empty()
         SYSTEM_MESSAGE = """
@@ -341,3 +345,4 @@ with recommendation_column:
         )
 
         coach_says.empty().write(recommendation.content)
+        st.session_state[running_date] = recommendation.content

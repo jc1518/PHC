@@ -15,9 +15,7 @@ altair==5.1.1
 annotated-types==0.5.0
     # via pydantic
 async-timeout==4.0.3
-    # via
-    #   aiohttp
-    #   langchain
+    # via aiohttp
 attrs==23.1.0
     # via
     #   aiohttp
@@ -197,7 +195,6 @@ tqdm==4.66.1
     # via openai
 typing-extensions==4.7.1
     # via
-    #   altair
     #   pydantic
     #   pydantic-core
     #   sqlalchemy
@@ -211,12 +208,14 @@ tzdata==2023.3
     #   pytz-deprecation-shim
 tzlocal==4.3.1
     # via streamlit
-urllib3==2.0.4
+urllib3==2.0.6
     # via requests
 validators==0.22.0
     # via streamlit
 watchdog==3.0.0
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   streamlit
 yarl==1.9.2
     # via aiohttp
 zipp==3.16.2

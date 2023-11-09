@@ -127,7 +127,7 @@ pillow==9.5.0
     #   streamlit
 protobuf==4.24.3
     # via streamlit
-pyarrow==13.0.0
+pyarrow==14.0.1
     # via streamlit
 pydantic==2.3.0
     # via
@@ -216,7 +216,9 @@ urllib3==2.0.4
 validators==0.22.0
     # via streamlit
 watchdog==3.0.0
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   streamlit
 yarl==1.9.2
     # via aiohttp
 zipp==3.16.2

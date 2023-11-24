@@ -17,9 +17,7 @@ annotated-types==0.5.0
 anyio==3.7.1
     # via langchain
 async-timeout==4.0.3
-    # via
-    #   aiohttp
-    #   langchain
+    # via aiohttp
 attrs==23.1.0
     # via
     #   aiohttp
@@ -53,7 +51,7 @@ frozenlist==1.4.0
     #   aiosignal
 gitdb==4.0.10
     # via gitpython
-gitpython==3.1.36
+gitpython==3.1.37
     # via streamlit
 google-search-results==2.4.2
     # via -r requirements.in
@@ -205,7 +203,6 @@ tqdm==4.66.1
     # via openai
 typing-extensions==4.7.1
     # via
-    #   altair
     #   pydantic
     #   pydantic-core
     #   sqlalchemy

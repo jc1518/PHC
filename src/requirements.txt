@@ -14,6 +14,8 @@ altair==5.1.1
     # via streamlit
 annotated-types==0.5.0
     # via pydantic
+anyio==3.7.1
+    # via langchain
 async-timeout==4.0.3
     # via
     #   aiohttp
@@ -41,6 +43,8 @@ cycler==0.11.0
     # via matplotlib
 dataclasses-json==0.5.14
     # via langchain
+exceptiongroup==1.1.3
+    # via anyio
 fonttools==4.42.1
     # via matplotlib
 frozenlist==1.4.0
@@ -57,6 +61,7 @@ greenlet==2.0.2
     # via sqlalchemy
 idna==3.4
     # via
+    #   anyio
     #   requests
     #   yarl
 importlib-metadata==6.8.0
@@ -65,15 +70,19 @@ jinja2==3.1.2
     # via
     #   altair
     #   pydeck
+jsonpatch==1.33
+    # via langchain
+jsonpointer==2.4
+    # via jsonpatch
 jsonschema==4.19.0
     # via altair
 jsonschema-specifications==2023.7.1
     # via jsonschema
 kiwisolver==1.4.5
     # via matplotlib
-langchain==0.0.292
+langchain==0.0.329
     # via -r requirements.in
-langsmith==0.0.37
+langsmith==0.0.63
     # via langchain
 lxml==4.9.3
     # via -r requirements.in
@@ -93,8 +102,6 @@ multidict==6.0.4
     #   yarl
 mypy-extensions==1.0.0
     # via typing-inspect
-numexpr==2.8.6
-    # via langchain
 numpy==1.25.2
     # via
     #   -r requirements.in
@@ -102,7 +109,6 @@ numpy==1.25.2
     #   contourpy
     #   langchain
     #   matplotlib
-    #   numexpr
     #   pandas
     #   pyarrow
     #   pydeck
@@ -177,6 +183,8 @@ six==1.16.0
     # via python-dateutil
 smmap==5.0.0
     # via gitdb
+sniffio==1.3.0
+    # via anyio
 sqlalchemy==2.0.20
     # via langchain
 streamlit==1.26.0
@@ -216,7 +224,9 @@ urllib3==2.0.4
 validators==0.22.0
     # via streamlit
 watchdog==3.0.0
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   streamlit
 yarl==1.9.2
     # via aiohttp
 zipp==3.16.2

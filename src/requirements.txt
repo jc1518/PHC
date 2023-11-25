@@ -17,7 +17,9 @@ annotated-types==0.5.0
 anyio==3.7.1
     # via langchain
 async-timeout==4.0.3
-    # via aiohttp
+    # via
+    #   aiohttp
+    #   langchain
 attrs==23.1.0
     # via
     #   aiohttp
@@ -79,6 +81,10 @@ jsonschema-specifications==2023.7.1
 kiwisolver==1.4.5
     # via matplotlib
 langchain==0.0.329
+    # via
+    #   -r requirements.in
+    #   langchain-experimental
+langchain-experimental==0.0.42
     # via -r requirements.in
 langsmith==0.0.63
     # via langchain
@@ -203,6 +209,7 @@ tqdm==4.66.1
     # via openai
 typing-extensions==4.7.1
     # via
+    #   altair
     #   pydantic
     #   pydantic-core
     #   sqlalchemy
@@ -221,9 +228,7 @@ urllib3==2.0.7
 validators==0.22.0
     # via streamlit
 watchdog==3.0.0
-    # via
-    #   -r requirements.in
-    #   streamlit
+    # via -r requirements.in
 yarl==1.9.2
     # via aiohttp
 zipp==3.16.2

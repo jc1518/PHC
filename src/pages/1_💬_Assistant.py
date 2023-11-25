@@ -4,8 +4,10 @@ import os
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
-from langchain import SerpAPIWrapper
-from langchain.agents import AgentType, Tool, create_csv_agent, initialize_agent
+from langchain.utilities import SerpAPIWrapper
+from langchain.agents import AgentType, Tool, initialize_agent
+from langchain_experimental.agents.agent_toolkits import create_csv_agent
+from langchain_experimental.agents.agent_toolkits import create_csv_agent
 from langchain.callbacks import StreamlitCallbackHandler
 from langchain.chat_models import ChatOpenAI
 

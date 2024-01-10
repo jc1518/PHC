@@ -51,7 +51,7 @@ frozenlist==1.4.0
     #   aiosignal
 gitdb==4.0.10
     # via gitpython
-gitpython==3.1.37
+gitpython==3.1.41
     # via streamlit
 google-search-results==2.4.2
     # via -r requirements.in

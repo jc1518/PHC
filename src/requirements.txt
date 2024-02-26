@@ -7,6 +7,7 @@
 aiohttp==3.9.0
     # via
     #   langchain
+    #   langchain-community
     #   openai
 aiosignal==1.3.1
     # via aiohttp
@@ -15,7 +16,7 @@ altair==5.1.1
 annotated-types==0.5.0
     # via pydantic
 anyio==3.7.1
-    # via langchain
+    # via langchain-core
 async-timeout==4.0.3
     # via
     #   aiohttp
@@ -40,7 +41,9 @@ contourpy==1.1.0
 cycler==0.11.0
     # via matplotlib
 dataclasses-json==0.5.14
-    # via langchain
+    # via
+    #   langchain
+    #   langchain-community
 exceptiongroup==1.1.3
     # via anyio
 fonttools==4.42.1
@@ -69,7 +72,9 @@ jinja2==3.1.2
     #   altair
     #   pydeck
 jsonpatch==1.33
-    # via langchain
+    # via
+    #   langchain
+    #   langchain-core
 jsonpointer==2.4
     # via jsonpatch
 jsonschema==4.19.0
@@ -78,14 +83,24 @@ jsonschema-specifications==2023.7.1
     # via jsonschema
 kiwisolver==1.4.5
     # via matplotlib
-langchain==0.0.329
+langchain==0.1.9
     # via
     #   -r requirements.in
     #   langchain-experimental
-langchain-experimental==0.0.42
-    # via -r requirements.in
-langsmith==0.0.63
+langchain-community==0.0.24
     # via langchain
+langchain-core==0.1.26
+    # via
+    #   langchain
+    #   langchain-community
+    #   langchain-experimental
+langchain-experimental==0.0.52
+    # via -r requirements.in
+langsmith==0.1.9
+    # via
+    #   langchain
+    #   langchain-community
+    #   langchain-core
 lxml==4.9.3
     # via -r requirements.in
 markdown-it-py==3.0.0
@@ -110,6 +125,7 @@ numpy==1.25.2
     #   altair
     #   contourpy
     #   langchain
+    #   langchain-community
     #   matplotlib
     #   pandas
     #   pyarrow
@@ -117,9 +133,12 @@ numpy==1.25.2
     #   streamlit
 openai==0.28.0
     # via -r requirements.in
-packaging==23.1
+orjson==3.9.15
+    # via langsmith
+packaging==23.2
     # via
     #   altair
+    #   langchain-core
     #   marshmallow
     #   matplotlib
     #   streamlit
@@ -140,6 +159,7 @@ pyarrow==14.0.1
 pydantic==2.3.0
     # via
     #   langchain
+    #   langchain-core
     #   langsmith
 pydantic-core==2.6.3
     # via pydantic
@@ -163,7 +183,10 @@ pytz==2023.3.post1
 pytz-deprecation-shim==0.1.0.post0
     # via tzlocal
 pyyaml==6.0.1
-    # via langchain
+    # via
+    #   langchain
+    #   langchain-community
+    #   langchain-core
 referencing==0.30.2
     # via
     #   jsonschema
@@ -172,6 +195,8 @@ requests==2.31.0
     # via
     #   google-search-results
     #   langchain
+    #   langchain-community
+    #   langchain-core
     #   langsmith
     #   openai
     #   streamlit
@@ -188,7 +213,9 @@ smmap==5.0.0
 sniffio==1.3.0
     # via anyio
 sqlalchemy==2.0.20
-    # via langchain
+    # via
+    #   langchain
+    #   langchain-community
 streamlit==1.26.0
     # via -r requirements.in
 tabulate==0.9.0
@@ -196,6 +223,8 @@ tabulate==0.9.0
 tenacity==8.2.3
     # via
     #   langchain
+    #   langchain-community
+    #   langchain-core
     #   streamlit
 toml==0.10.2
     # via streamlit
